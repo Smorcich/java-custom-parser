@@ -21,13 +21,11 @@ public class Parser {
 
     private static String getLink(String str) throws Exception {
         Matcher matcher = pattern.matcher(str);
-        if(matcher.find()) {
+        if (matcher.find()) {
             return matcher.group();
         }
         throw new Exception("Cant extract data from string");
     }
-
-    public static String testStr;
 
     public static void main(String[] args) throws IOException {
         Document page = getPage();
@@ -42,6 +40,7 @@ public class Parser {
         }
          */
         int number = 0;
+        String testStr = "";
         for (Element title : titles) {
             testStr = testStr + "\n " + ((++number) + ". " + title.text()
                     + " (" + "https://toonily.com/"
@@ -56,6 +55,7 @@ public class Parser {
         Elements titles = main.select("h3[class=h5]");
 
         int number = 0;
+        String testStr = "";
         for (Element title : titles) {
             testStr = testStr + "\n " + ((++number) + ". " + title.text()
                     + " (" + "https://toonily.com/"
