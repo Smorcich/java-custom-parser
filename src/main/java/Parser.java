@@ -26,6 +26,9 @@ public class Parser {
         }
         throw new Exception("Cant extract data from string");
     }
+
+    public static String testStr;
+
     public static void main(String[] args) throws IOException {
         Document page = getPage();
         Element main = page.select("div[id=loop-content]").first();
@@ -40,10 +43,25 @@ public class Parser {
          */
         int number = 0;
         for (Element title : titles) {
-            System.out.println((++number) + ". " + title.text()
+            testStr = testStr + "\n " + ((++number) + ". " + title.text()
                     + " (" + "https://toonily.com/"
                     + title.text() +  ".html" + ")");
         }
+        System.out.println(testStr);
+    }
+
+    public static String createString() throws IOException {
+        Document page = getPage();
+        Element main = page.select("div[id=loop-content]").first();
+        Elements titles = main.select("h3[class=h5]");
+
+        int number = 0;
+        for (Element title : titles) {
+            testStr = testStr + "\n " + ((++number) + ". " + title.text()
+                    + " (" + "https://toonily.com/"
+                    + title.text() +  ".html" + ")");
+        }
+        return testStr;
     }
 
 }

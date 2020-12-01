@@ -4,6 +4,7 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Label;
 import javafx.scene.image.Image;
+import javafx.scene.text.Text;
 import javafx.stage.Stage;
 import javafx.fxml.FXMLLoader;
 
@@ -17,7 +18,7 @@ public class Main extends Application {
         URL xmlUrl = getClass().getResource("/first.fxml");
         loader.setLocation(xmlUrl);
         Parent root = loader.load();
-        primaryStage.setScene(new Scene(root));
+        primaryStage.setScene(new Scene(root, 1000,1000));
         primaryStage.show();
     }
 }
