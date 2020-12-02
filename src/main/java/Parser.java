@@ -28,25 +28,6 @@ public class Parser {
     }
 
     public static void main(String[] args) throws IOException {
-        Document page = getPage();
-        Element main = page.select("div[id=loop-content]").first();
-        Elements titles = main.select("h3[class=h5]");
-        /*for (Element title : titles) {
-            try {
-                String postName = getLink(title.text());
-            } catch (Exception e) {
-                e.printStackTrace();
-            }
-        }
-         */
-        int number = 0;
-        String testStr = "";
-        for (Element title : titles) {
-            testStr = testStr + "\n " + ((++number) + ". " + title.text()
-                    + " (" + "https://toonily.com/"
-                    + title.text() +  ".html" + ")");
-        }
-        System.out.println(testStr);
     }
 
     public static String createString() throws IOException {
@@ -62,6 +43,52 @@ public class Parser {
                     + title.text() +  ".html" + ")");
         }
         return testStr;
+    }
+
+    public static String[] linksArray() throws IOException {
+        Document page = getPage();
+        Element main = page.select("div[id=loop-content]").first();
+        Elements titles = main.select("h3[class=h5]");
+
+        int number = 0;
+        String[] arr = new String[100];
+        String tempTitle = "";
+        char[] tempTitleLetters = new char[100];
+        char[] titleLetters = new char[100];
+        char tempChar = ' ';
+
+        for (Element title : titles) {
+            tempTitle = title.text();
+            tempTitleLetters = new char[100];
+            titleLetters = new char[100];
+
+            for(int i = 0; i < tempTitle.length(); i++){
+                tempTitleLetters[i] = tempTitle.charAt(i);
+            }
+
+            for (int i = 0; i < tempTitle.length(); i++) {
+                tempChar = tempTitleLetters[i];
+                if (tempChar == ' ') {
+                    tempTitleLetters[i] = '-';
+                }
+            }
+            int k = 0;
+            for (int i = 0; i < tempTitle.length(); i++) {
+                tempChar = tempTitleLetters[i];
+                if (tempChar == '’') {
+                } else {
+                    titleLetters[k] = tempTitleLetters[i];
+                    k++;
+                }
+            }
+
+            tempTitle = new String(titleLetters);
+
+            arr[number] = "https://toonily.com/"
+                    + tempTitle;
+            System.out.println(arr[number]);
+        }
+        return arr;
     }
 
 }
