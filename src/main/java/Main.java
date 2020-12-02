@@ -26,7 +26,7 @@ public class Main extends Application {
         MainSceneController fXMLDocumentController = loader.getController();
         fXMLDocumentController.setGetHostController(getHostServices());
 
-        primaryStage.setScene(new Scene(root, 1000,1000));
+        primaryStage.setScene(new Scene(root, 1000,700));
         primaryStage.show();
     }
 }

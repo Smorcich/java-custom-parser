@@ -38,9 +38,7 @@ public class Parser {
         int number = 0;
         String testStr = "";
         for (Element title : titles) {
-            testStr = testStr + "\n " + ((++number) + ". " + title.text()
-                    + " (" + "https://toonily.com/"
-                    + title.text() +  ".html" + ")");
+            testStr = testStr + "\n " + ((++number) + ". " + title.text());
         }
         return testStr;
     }
