@@ -41,7 +41,7 @@ public class Parser {
         int number = 0;
         String testStr = "";
         for (Element title : titles) {
-            testStr = testStr + "\n " + ((++number) + ". " + title.text());
+            testStr = testStr + "\n " + ((number++) + ". " + title.text());
         }
         return testStr;
     }
