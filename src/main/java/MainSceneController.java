@@ -26,6 +26,15 @@ public class MainSceneController extends Parser {
     @FXML
     private TextField textField;
 
+    @FXML
+    private TextField chooseLink;
+
+    private String link;
+
+    private String[] linksArr = new String[100];
+
+    private int linkNumber;
+
     Parser parser = new Parser();
 
     @FXML
@@ -40,8 +49,12 @@ public class MainSceneController extends Parser {
     }
 
     @FXML
-    private void hyperLinkClicked() {
-        hostServices.showDocument("");
+    private void hyperLinkClicked() throws IOException {
+        linksArr = linksArray();
+        link = chooseLink.getText();
+        linkNumber = Integer.parseInt(link);
+        String str = linksArr[linkNumber];
+        hostServices.showDocument(str);
     }
 
     @FXML

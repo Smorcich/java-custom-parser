@@ -28,6 +28,9 @@ public class Parser {
     }
 
     public static void main(String[] args) throws IOException {
+        String[] ar = new String[100];
+        ar = linksArray();
+        System.out.println(ar[0]);
     }
 
     public static String createString() throws IOException {
@@ -57,8 +60,8 @@ public class Parser {
 
         for (Element title : titles) {
             tempTitle = title.text();
-            tempTitleLetters = new char[100];
-            titleLetters = new char[100];
+            tempTitleLetters = new char[tempTitle.length()];
+            titleLetters = new char[tempTitle.length()];
 
             for(int i = 0; i < tempTitle.length(); i++){
                 tempTitleLetters[i] = tempTitle.charAt(i);
@@ -84,7 +87,8 @@ public class Parser {
 
             arr[number] = "https://toonily.com/"
                     + tempTitle;
-            System.out.println(arr[number]);
+            number++;
+            //System.out.println(arr[number]);
         }
         return arr;
     }
