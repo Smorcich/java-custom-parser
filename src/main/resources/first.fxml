@@ -13,32 +13,22 @@
 
 <VBox alignment="TOP_CENTER" prefHeight="692.0" prefWidth="868.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="MainSceneController">
     <Label fx:id="mainTitle" ellipsisString="0" text="java-custom-parser by saintroome" />
-   <VBox prefHeight="87.0" prefWidth="868.0" />
-   <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0">
+   <HBox alignment="CENTER" prefHeight="88.0" prefWidth="868.0">
       <children>
           <Button fx:id="mainButton" ellipsisString="0" onAction="#buttonClicked" text="Toonly" />
-         <Button fx:id="dvach" mnemonicParsing="false" prefHeight="25.0" prefWidth="51.0" text="2ch" onAction="#buttonDvachClicked" />
+         <Button fx:id="dvach" mnemonicParsing="false" onAction="#buttonDvachClicked" prefHeight="25.0" prefWidth="51.0" text="2ch" />
+          <Button fx:id="clearButton" ellipsisString="0" onAction="#clearButtonClicked" text="Clear" />
       </children>
    </HBox>
-   <VBox prefHeight="91.0" prefWidth="868.0" />
-    <Button fx:id="clearButton" ellipsisString="0" onAction="#clearButtonClicked" text="Clear" />
-   <HBox prefHeight="680.0" prefWidth="868.0">
+   <TextField fx:id="chooseLink" alignment="CENTER" prefHeight="25.0" prefWidth="670.0" text="0" />
+   <Hyperlink fx:id="hyperLink" alignment="CENTER" onAction="#hyperLinkClicked" prefHeight="0.0" prefWidth="57.0" style="-fx-background-color: #333;" text="---&gt;" textAlignment="CENTER" />
+   <TextFlow fx:id="textFlow" prefHeight="577.0" prefWidth="1024.0">
       <children>
-         <TextFlow fx:id="textFlow" prefHeight="100.0" prefWidth="472.0">
-            <children>
-                <Text fx:id="text">
-                    <font>
-                        <Font name="Times New Roman" size="16.0" />
-                    </font>
-                </Text>
-            </children>
-         </TextFlow>
-         <TextFlow prefHeight="100.0" prefWidth="462.0">
-            <children>
-               <TextField fx:id="chooseLink" alignment="CENTER" prefHeight="6.0" prefWidth="149.0" text="0" />
-               <Hyperlink fx:id="hyperLink" alignment="CENTER" onAction="#hyperLinkClicked" prefHeight="0.0" prefWidth="57.0" style="-fx-background-color: #333;" text="---&gt;" textAlignment="CENTER" />
-            </children>
-         </TextFlow>
+          <Text fx:id="text" style="-fx-font-size: 30;">
+              <font>
+                  <Font name="Times New Roman" size="16.0" />
+              </font>
+          </Text>
       </children>
-   </HBox>
+   </TextFlow>
 </VBox>
