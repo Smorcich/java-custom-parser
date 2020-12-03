@@ -17,7 +17,7 @@
    <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0">
       <children>
           <Button fx:id="mainButton" ellipsisString="0" onAction="#buttonClicked" text="Toonly" />
-         <Button fx:id="dvach" mnemonicParsing="false" prefHeight="25.0" prefWidth="51.0" text="2ch" />
+         <Button fx:id="dvach" mnemonicParsing="false" prefHeight="25.0" prefWidth="51.0" text="2ch" onAction="#buttonDvachClicked" />
       </children>
    </HBox>
    <VBox prefHeight="91.0" prefWidth="868.0" />
@@ -35,7 +35,7 @@
          </TextFlow>
          <TextFlow prefHeight="100.0" prefWidth="462.0">
             <children>
-               <TextField fx:id="chooseLink" alignment="CENTER" prefHeight="6.0" prefWidth="149.0" text="0" onAction="#hyperLinkClicked" />
+               <TextField fx:id="chooseLink" alignment="CENTER" prefHeight="6.0" prefWidth="149.0" text="0" />
                <Hyperlink fx:id="hyperLink" alignment="CENTER" onAction="#hyperLinkClicked" prefHeight="0.0" prefWidth="57.0" style="-fx-background-color: #333;" text="---&gt;" textAlignment="CENTER" />
             </children>
          </TextFlow>

@@ -6,7 +6,7 @@ import javafx.scene.text.TextFlow;
 
 import java.io.IOException;
 
-public class MainSceneController extends Parser {
+public class MainSceneController {
 
     @FXML
     private Label mainText;
@@ -36,9 +36,18 @@ public class MainSceneController extends Parser {
 
     private Parser parser = new Parser();
 
+    private String check = "";
+
     @FXML
     private void buttonClicked() throws IOException {
-        text.setText(createString() + " ");
+        this.check = "toonly";
+        text.setText(parser.createString());
+    }
+
+    @FXML
+    private void buttonDvachClicked() throws Exception {
+        this.check = "dvach";
+        text.setText(parser.getDvachParserString());
     }
 
     HostServices hostServices ;
@@ -48,8 +57,12 @@ public class MainSceneController extends Parser {
     }
 
     @FXML
-    private void hyperLinkClicked() throws IOException {
-        linksArr = linksArray();
+    private void hyperLinkClicked() throws Exception {
+        if (check == "toonly") {
+            linksArr = parser.linksArray();
+        } else if (check == "dvach") {
+            linksArr = parser.getDvachParserArrayLinks();
+        }
         hostServices.showDocument(linksArr[Integer.parseInt(chooseLink.getText())]);
     }
 
